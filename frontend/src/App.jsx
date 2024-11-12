@@ -44,15 +44,17 @@ function App() {
     <div>
       <h1>S&P 500 Total Return Index</h1>
     </div>
-    <LineChart width={800} height={500} data={data}>
+    <LineChart width={800} height={500} data={data} margin={{left: 70, right: 30, top: 20, bottom:20}}>
         <Line type="monotone" dataKey="TotalReturn" stroke="#8884d8" dot={false} />
         <CartesianGrid stroke="#ccc" />
         <XAxis
           dataKey="ReferenceDate"
           tickFormatter={(date) => new Date(date).toLocaleDateString()}
           ticks={yearlyTicks} 
+          padding={{ top: 10 }}
+          label={{ value: 'Date', position: 'insideBottom', offset: -5 }}
         />
-        <YAxis domain={['auto']}/>
+        <YAxis domain={['auto']} label={{value: 'Total Return', position: 'insideLeft', offset: -70}}/>
         <Tooltip 
             content={({ payload, label }) => {
             if (payload && payload.length) {
