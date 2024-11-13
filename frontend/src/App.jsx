@@ -7,9 +7,11 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts'
 function App() {
   const [data, setData] = useState([])
 
+  // Retrieve the data passed from the backend 
   useEffect(() => {
       fetch('http://127.0.0.1:8000/data').then((response) => response.json())
       .then((data) => {
+        //Perform the calculation from the excel sheet
         let totalReturn = 1; 
         const dataWithTotalReturn = data.map((item) => {
           const add1InPercentSpace = 1 + (item.DailyReturn / 100);
@@ -28,6 +30,7 @@ function App() {
      });
   }, []);
 
+  //Helper method to get graph's x-axis to display January 2 entries. 
   const getYearlyTicks = () => {
     return data
       .filter((item) => {
@@ -44,6 +47,7 @@ function App() {
     <div>
       <h1>S&P 500 Total Return Index</h1>
     </div>
+    {/* Graph the Data  */}
     <LineChart width={800} height={500} data={data} margin={{left: 70, right: 30, top: 20, bottom:20}}>
         <Line type="monotone" dataKey="TotalReturn" stroke="#8884d8" dot={false} />
         <CartesianGrid stroke="#ccc" />
@@ -55,6 +59,7 @@ function App() {
           label={{ value: 'Date', position: 'insideBottom', offset: -5 }}
         />
         <YAxis domain={['auto']} label={{value: 'Total Return', position: 'insideLeft', offset: -70}}/>
+        {/* Customize tooltip so that when user hovers over graph point it displays total return up to that point */}
         <Tooltip 
             content={({ payload, label }) => {
             if (payload && payload.length) {

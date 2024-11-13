@@ -36,6 +36,8 @@ def read_root():
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
 
+
+# Method to retrieve data from the excel file and load it in backend
 @app.get("/data")
 def read_data():
     data = pd.read_excel(r'C:\Users\saite\investure\backend\SoftwareInternAssignment.xlsx')

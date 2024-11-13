@@ -41,16 +41,17 @@
   color: #888;
 }
 
+/* Styling for the tooltip */
 .custom-tooltip {
-  background-color: white;  /* White background */
-  border: 1px solid #ccc;  /* Light border color */
-  border-radius: 5px;  /* Rounded corners */
-  padding: 10px;  /* Space inside the tooltip */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
-  font-size: 14px;  /* Font size */
-  color: black;  /* Text color */
+  background-color: white;
+  border: 1px solid #ccc;  
+  border-radius: 5px; 
+  padding: 10px;  
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+  font-size: 14px;
+  color: black;  
 }
 
 .custom-tooltip p {
-  margin: 0;  /* Remove margin between paragraphs */
+  margin: 0;  
 }
