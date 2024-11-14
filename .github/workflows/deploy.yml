@@ -30,24 +30,33 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'npm'
-      - name: Cd into frontend directory
+
+      - name: Change to frontend directory
         run: cd frontend
+
       - name: Install dependencies
         run: npm install
+        working-directory: ./frontend
+
       - name: Build
         run: npm run build
+        working-directory: ./frontend
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          # Upload dist repository
-          path: './dist'
+          # Upload frontend/dist directory
+          path: './frontend/dist'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
