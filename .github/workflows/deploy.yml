@@ -36,9 +36,8 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-
-      - name: Change to frontend directory
-        run: cd frontend
+          # Specify the working directory to frontend
+          working-directory: ./frontend
 
       - name: Install dependencies
         run: npm install
