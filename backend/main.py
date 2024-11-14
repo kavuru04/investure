@@ -40,6 +40,6 @@ def read_item(item_id: int, q: Union[str, None] = None):
 # Method to retrieve data from the excel file and load it in backend
 @app.get("/data")
 def read_data():
-    data = pd.read_excel(r'C:\Users\saite\investure\backend\SoftwareInternAssignment.xlsx')
+    data = pd.read_excel(r'./SoftwareInternAssignment.xlsx')
     json_data = data.to_dict(orient="records")  # Convert DataFrame to list of dictionaries
     return json_data

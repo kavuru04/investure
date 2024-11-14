@@ -9,7 +9,7 @@ function App() {
 
   // Retrieve the data passed from the backend 
   useEffect(() => {
-      fetch('http://127.0.0.1:8000/data').then((response) => response.json())
+      fetch('https://investure.onrender.com/data').then((response) => response.json())
       .then((data) => {
         //Perform the calculation from the excel sheet
         let totalReturn = 1; 
